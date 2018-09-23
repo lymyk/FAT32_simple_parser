@@ -12,9 +12,6 @@
 #define END_OF_DIR 0x00
 #define LAST_LONG_ENTRY 0x40  // All valid sets of long dir entries must begin with an entry having this mask.
 
-//#define FAT_MASK 0x0FFFFFFF
-//#define EOC 0x0FFFFFFF              // End of cluster chain
-//#define LAST_BYTES_SIGNATURE 0xAA55
 
 typedef struct DIR_Entry_struct
 {
