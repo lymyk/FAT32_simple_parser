@@ -38,13 +38,10 @@ bool loadDisk(Disk * disk, const char * diskName)
     fseek(disk->disk_entry, 0, SEEK_END);
     disk->size = (size_t)ftell(disk->disk_entry);
 
-    if (MAX_FILE_SIZE > disk->size)
+    if ((MAX_FILE_SIZE > disk->size) && checkSignature(disk))
     {
-        if (checkSignature(disk))
-        {
-            printf("%s:sizeof file: %ld\nSignature is ok!\n", __func__, disk->size);
-            return true;
-        }
+        printf("%s:sizeof file: %ld\nSignature is ok!\n", __func__, disk->size);
+        return true;
     }
     else
     {
